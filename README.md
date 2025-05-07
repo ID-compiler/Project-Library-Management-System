@@ -1,5 +1,4 @@
-# Project-Library-Management-System
-# Spring Boot CRUD Application - Books and Authors
+# Spring Boot CRUD Application - Library Management System
 
 This project is a Spring Boot application designed to manage information for two entities: **Books** and **Authors**. It supports Create, Read, and Update operations using JSP views and a MySQL database.
 
