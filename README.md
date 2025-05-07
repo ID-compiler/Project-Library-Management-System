@@ -1,39 +1,87 @@
-# Spring Boot CRUD Application - Library Management System
+# Bookstore Management System
 
-This project is a Spring Boot application designed to manage information for two entities: **Books** and **Authors**. It supports Create, Read, and Update operations using JSP views and a MySQL database.
+A Spring Boot CRUD application for managing books and authors with MySQL database.
 
-## 📌 Features
+## Features
 
-- Add new Books and Authors using a form
-- Display all Books and Authors in a list view
-- Update existing Book and Author records
-- Perform an inner join to fetch books with their corresponding authors
-- Layered architecture with MVC pattern
-- Styled JSP views for user interaction
+- Manage Authors (CRUD operations)
+- Manage Books (CRUD operations)
+- Search functionality
+- Responsive UI with Bootstrap 5
+- Form validation
+- JSP views with JSTL
 
-## 📁 Technologies Used
+## Prerequisites
 
-- Java 17+
-- Spring Boot
-- Spring Data JPA
-- JSP
-- JSTL
-- MySQL
-- Maven
+- Java 11 or higher
+- Maven 3.6.3 or higher
+- MySQL 8.0 or higher
 
-## 🧱 Project Structure
+## Setup
 
-- `model/` - Entity classes: `Book`, `Author`
-- `repository/` - JPA repositories for data access
-- `service/` - Business logic
-- `controller/` - Spring MVC controllers
-- `webapp/WEB-INF/jsp/` - JSP views
+1. **Database Setup**
+   - Create a MySQL database named `courses_student_db`
+   - Update the database credentials in `src/main/resources/application.properties` if needed
 
-## 📊 Database
+2. **Build the Application**
+   ```bash
+   mvn clean install
+   ```
 
-- MySQL used to persist data
-- Entities:
-  - `Book (id, title, isbn, author_id)`
-  - `Author (id, name, email)`
-- Relationship: One-to-Many (Author → Books)
+3. **Run the Application**
+   ```bash
+   mvn spring-boot:run
+   ```
 
+4. **Access the Application**
+   - Open your browser and go to: http://localhost:8080/bookstore/
+
+## Project Structure
+
+```
+src/
+├── main/
+│   ├── java/
+│   │   └── com/
+│   │       └── bookstore/
+│   │           ├── config/         # Configuration classes
+│   │           ├── controller/     # Web controllers
+│   │           ├── model/          # Entity classes
+│   │           ├── repository/     # Data access layer
+│   │           ├── service/        # Business logic layer
+│   │           └── BookstoreApplication.java
+│   ├── resources/
+│   │   └── application.properties
+│   └── webapp/
+│       └── WEB-INF/
+│           └── views/             # JSP views
+└── test/                          # Test classes
+```
+
+## API Endpoints
+
+### Authors
+- GET    /authors           - List all authors
+- GET    /authors/add       - Show add author form
+- POST   /authors/save      - Save author
+- GET    /authors/edit/{id} - Show edit author form
+- GET    /authors/delete/{id} - Delete author
+
+### Books
+- GET    /books           - List all books
+- GET    /books/add       - Show add book form
+- POST   /books/save      - Save book
+- GET    /books/edit/{id} - Show edit book form
+- GET    /books/delete/{id} - Delete book
+
+## Technologies Used
+
+- **Backend**: Spring Boot 2.7.0
+- **Database**: MySQL 8.0
+- **Frontend**: Bootstrap 5, JSP, JSTL
+- **Build Tool**: Maven
+- **Java Version**: 11
+
+## License
+
+This project is licensed under the MIT License.
